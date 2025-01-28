@@ -7,6 +7,7 @@ from threading import Timer
 import sqlalchemy as sa #added for database initialization on Render
 
 app = Flask("app")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #added to improve performance on Render
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL', "sqlite:///villain.db") #Updated to use the PostgreSQL database by Render
 db = SQLAlchemy(app)
 
